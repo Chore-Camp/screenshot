@@ -30,15 +30,14 @@ if (!fs.existsSync(path.join(__dirname, process.env.CACHE))) {
 
 }
 
-const limiter = rateLimit({
-	windowMs: Number(process.env.COOLDOWN),
-	max: 1,
-	standardHeaders: true,
-	legacyHeaders: false,
-})
-
 (async () => {
     const args = ['--no-sandbox', '--disable-setuid-sandbox']
+    const limiter = rateLimit({
+	    windowMs: Number(process.env.COOLDOWN),
+	    max: 1,
+	    standardHeaders: true,
+	    legacyHeaders: false,
+    })
 
     const app = express()
     const browser = await puppeteer.launch({
@@ -70,7 +69,7 @@ const limiter = rateLimit({
         await page.screenshot({ path: path.join(__dirname, process.env.CACHE, `${r}.png`) })
         cache.set(url.href, r)
 
-        res.redirect(`../cache/${r}.png`)
+        res.send({ link: `https://${req.hostname === 'localhost' ? `${req.hostname}:${process.env.PORT}` : req.hostname}/${process.env.CACHE}/${r}.png` })
         
         setTimeout(() => {
             fs.unlink(path.join(__dirname, process.env.CACHE, `${r}.png`))
