@@ -1,0 +1,65 @@
+{
+  "name": "screenshot",
+  "version": "1.0.0",
+  "description": "simple nodejs rest api to take screenshots from websites",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "engines": {
+    "node": "^12.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chore-Camp/screenshot.git"
+  },
+  "author": "san4ouZ",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Chore-Camp/screenshot/issues"
+  },
+  "homepage": "https://github.com/Chore-Camp/screenshot#readme",
+  "env": {
+    "PORT": {
+      "description": "A port on which this app will work, heroku gives it itself",
+      "value": "8080",
+      "required": false
+    },
+    "CACHE": {
+      "description": "A dir where will be cached screenshots",
+      "value": "cache",
+      "required": false
+    },
+    "COOLDOWN": {
+      "description": "Time in ms for 1 request",
+      "value": "1000",
+      "required": false
+    },
+    "CACHE_TIME": {
+      "description": "Time in ms how long will be screenshot in cache",
+      "value": "10000",
+      "required": false
+    },
+    "HEIGHT": {
+      "description": "Height of screenshot",
+      "value": "1080",
+      "required": false
+    },
+    "WIDTH": {
+      "description": "Width of screenshot",
+      "value": "1920",
+      "required": false
+    },
+    "AUTH_TOKEN": {
+      "description": "A token that will use for authorization",
+      "value": "",
+      "required": false
+    }
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-rate-limit": "^6.3.0",
+    "puppeteer": "^13.5.2"
+  }
+}

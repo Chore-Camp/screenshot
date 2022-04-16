@@ -1,0 +1,9 @@
+{
+    "PORT": "8080",
+    "CACHE": "cache",
+    "COOLDONW": "1000",
+    "CACHE_TIME": "10000",
+    "HEIGHT": "1080",
+    "WIDTH": "1920",
+    "AUTH_TOKEN": "some-secret-string-that-anyone-can't-know"
+}
